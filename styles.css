@@ -1,0 +1,289 @@
+:root {
+    --primary-color: #FF6B6B;
+    --secondary-color: #4ECDC4;
+    --accent-color: #FFD93D;
+    --background-color: #F7FFF7;
+    --text-color: #2C3E50;
+    --card-background: #FFFFFF;
+    --header-text-color: #FFFFFF;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    overflow-x: hidden;
+    position: relative;
+    background-color: var(--background-color);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #89ABE3FF, #FCF6F5FF, #e73c7e, #23a6d5);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    opacity: 0.1;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+header {
+    background: linear-gradient(-45deg, #89ABE3FF, #FCF6F5FF);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: var(--header-text-color);
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 4rem;
+    z-index: 1;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #4A6FA5, #89ABE3); /* Blue gradient similar to start screen */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Make the text color transparent to show the gradient */
+}
+
+
+/* Spinning dots effect */
+header::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, #ee7752 10%, transparent 10%),
+                radial-gradient(circle, #e73c7e 10%, transparent 10%);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+    opacity: 0.3;
+    animation: move 20s linear infinite;
+}
+
+@keyframes move {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 2;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.content-section {
+    padding: 50px 20px;
+    background-color: transparent;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-top: 50px;
+}
+
+.founder-info, .signup-section, .course-offerings, .past-projects {
+    background: var(--card-background);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    margin-top: 3rem;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.founder-info:hover, .signup-section:hover, .course-offerings:hover, .past-projects:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.founder-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid var(--secondary-color);
+    object-fit: cover;
+    margin-top: 20px;
+    transition: transform 0.3s ease;
+}
+
+.founder-photo:hover {
+    transform: scale(1.05);
+}
+
+h2 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-top: 0;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-card, .course-card {
+    background-color: var(--background-color);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 2;
+    border: 3px dashed var(--accent-color);
+}
+
+.project-card:hover, .course-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.price-tag {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+    transform: rotate(-5deg);
+    margin-top: 10px;
+}
+
+.interview-badge {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+    transform: rotate(5deg);
+    margin-top: 10px;
+}
+
+footer {
+    background: linear-gradient(-45deg, #89ABE3FF, #FCF6F5FF);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: var(--header-text-color);
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+footer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 900;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Dialog for displaying project details */
+.dialog-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--card-background);
+    border-radius: 15px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dialog-container.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    visibility: visible;
+}
+
+.close-btn {
+    background-color: #FF6B6B;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.close-btn:hover {
+    background-color: #FFD93D;
+}
+
+.dialog-video {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 15px;
+}
